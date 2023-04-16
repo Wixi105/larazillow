@@ -38,7 +38,7 @@ class ListingController extends Controller
                 'baths' => 'required|integer|min:0|max:20',
                 'area' => 'required|integer|min:15|max:1500',
                 'city' => 'required',
-                'code' => 'required',
+                'postcode' => 'required',
                 'streetname' => 'required',
                 'streetnumber' => 'required|integer|min:1|max:1000',
                 'price' => 'required|integer|min:1|max:20000000',
@@ -75,9 +75,21 @@ class ListingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Listing $listing)
     {
-        //
+       $listing->update(
+            $request->validate([
+                'beds' => 'required|integer|min:0|max:20',
+                'baths' => 'required|integer|min:0|max:20',
+                'area' => 'required|integer|min:15|max:1500',
+                'city' => 'required',
+                'postcode' => 'required',
+                'streetname' => 'required',
+                'streetnumber' => 'required|integer|min:1|max:1000',
+                'price' => 'required|integer|min:1|max:20000000',
+            ])
+            );
+            return to_route('listing.index')->with("success", "Listing was updated!");
     }
 
     /**
