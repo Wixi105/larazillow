@@ -1,17 +1,17 @@
 <template>
-        <div>
-            <p>This is an index page</p>
-            <Link href="/hello">Show Page</Link>
-        </div>
-        <div>
-            <p>The message is {{ message }}</p>
-        </div>
+  <div>
+    <p>This is an index page</p>
+    <Link href="/hello">Show Page</Link>
+  </div>
+  <div>
+    <p>The message is {{ message }}</p>
+  </div>
 </template>
 
 <script setup>
 import { Link } from '@inertiajs/vue3'
 defineProps({
-    message: String
+  message: String,
 })
 </script>
 

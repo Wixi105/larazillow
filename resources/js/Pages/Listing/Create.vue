@@ -70,7 +70,7 @@ const form = useForm({
   price: null,
 })
 
-const submit = () => form.post('/listing')
+const submit = () => form.post(route('listing.store'))
 
 </script>
 

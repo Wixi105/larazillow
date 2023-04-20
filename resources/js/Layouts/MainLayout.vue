@@ -1,21 +1,33 @@
 <template>
-  <div>
-    <Link href="/listing">Listings</Link>
-    <Link href="/listing/create">New Listing</Link>
-  </div>
-  <section v-if="$page.props.flash.success" class="success">
-    {{ $page.props.flash.success }}
-  </section>
-  <slot>Default</slot>
+  <!-- dark:border-gray-700 -->
+  <!-- dark:bg-gray-800 -->
+  <header class="border-b border-gray-200 bg-white w-full">
+    <div class="container mx-auto">
+      <nav class="p-4 flex items-center justify-between">
+        <div class="text-lg">
+          <Link :href="route('listing.index')">Listings</Link>
+        </div>
+        <!-- dark:text-indigo-300 -->
+        <div class="text-xl text-indigo-600 font-bold text-center">
+          <Link :href="route('listing.index')">LaraZillow</Link>
+        </div>
+        <div>
+          <Link :href="route('listing.create')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium p-2 rounded-md"> + New Listing</Link>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto p-4">
+    <!-- dark:border-green-800 -->
+    <!-- dark:bg-green-900 -->
+    <section v-if="$page.props.flash.success" class="p-2 mb-4 border rounded-md shadow-sm border-green-200 bg-green-50">
+      {{ $page.props.flash.success }}
+    </section>
+    <slot>Default</slot>
+  </main>
 </template>
 
 <script setup>
 import { Link } from '@inertiajs/vue3'
 </script>
-
-<style scoped>
-  .success{
-    background-color: green;
-    color: white;
-  }
-</style>
