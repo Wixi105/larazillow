@@ -70,6 +70,7 @@ const form = useForm({
   price: null,
 })
 
+// eslint-disable-next-line no-undef
 const submit = () => form.post(route('listing.store'))
 
 </script>

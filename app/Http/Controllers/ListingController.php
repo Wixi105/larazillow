@@ -42,13 +42,9 @@ class ListingController extends Controller
                 'streetname' => 'required',
                 'streetnumber' => 'required|integer|min:1|max:1000',
                 'price' => 'required|integer|min:1|max:20000000',
-
-
             ])
         );
-
         return to_route('listing.index')->with("success", "Listing was created!");
-
     }
 
     /**
